@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Web onsite SDK</title>
+	</head>
+	<body style="font-family: Nunito, sans-serif">
+		<button id="subscribe">Subscribe</button>
+		<button id="logout">Logout</button>
+		<h1>IndexedDB Loaded</h1>
+		<script>
+			function initSwan() {
+				window._swan.init({
+					appId: 'swan-test_51793',
+					swPath: './serviceWorker.js',
+				});
+			}
+		</script>
+		<script src="./tracking.js" onload="initSwan()"></script>
+
+		<script>
+			const subscribeButton = document.querySelector('#subscribe');
+			subscribeButton.addEventListener('click', () => {
+				// Call the function to subscribe the user
+				window._swan.onsiteLogin('lisah@loyalytics.in');
+			});
+
+			const logoutButton = document.querySelector('#logout');
+			logoutButton.addEventListener('click', () => {
+				// Call the function to subscribe the user
+				window._swan.onsiteLogout();
+			});
+		</script>
+	</body>
+</html>
